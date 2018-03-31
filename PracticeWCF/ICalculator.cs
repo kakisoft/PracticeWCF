@@ -7,9 +7,33 @@ using System.Text;
 
 namespace PracticeWCF
 {
-    // メモ: [リファクター] メニューの [名前の変更] コマンドを使用すると、コードと config ファイルの両方で同時にインターフェイス名 "IService1" を変更できます。
+    //================================================
+    //
+    //             チュートリアルコード
+    //
+    //  機能概要：オンライン電卓
+    //================================================
+
+    /// <summary>
+    /// サービスコントラクトの定義
+    /// </summary>
+    [ServiceContract(Namespace = "http://Microsoft.ServiceModel.Samples")]
+    public interface ICalculator
+    {
+        [OperationContract]
+        double Add(double n1, double n2);
+        [OperationContract]
+        double Subtract(double n1, double n2);
+        [OperationContract]
+        double Multiply(double n1, double n2);
+        [OperationContract]
+        double Divide(double n1, double n2);
+    }
+
+    /*
+    // メモ: [リファクター] メニューの [名前の変更] コマンドを使用すると、コードと config ファイルの両方で同時にインターフェイス名 "ICalculator" を変更できます。
     [ServiceContract]
-    public interface IService1
+    public interface ICalculator
     {
         [OperationContract]
         string GetData(int value);
@@ -42,4 +66,5 @@ namespace PracticeWCF
             set { stringValue = value; }
         }
     }
+    */
 }
